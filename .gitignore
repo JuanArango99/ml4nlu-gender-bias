@@ -1,0 +1,20 @@
+# Virtual environments
+venv/
+env/
+.env
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Output directory
+output/
+
+# Data directory
+# Ignore downloaded dataset files or local corpora (optional depending on preference, but good for large files)
+data/
+
+# IDE files
+.vscode/
+.idea/
