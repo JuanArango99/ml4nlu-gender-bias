@@ -24,11 +24,11 @@ MODEL_SLUG_MAP = {
 # ── Run mode ──────────────────────────────────────────────────────────────────
 # "bulk"  → scores all professions, one progress line per word (paper results)
 # "debug" → verbose trace for a single word (use first to verify setup works)
-MODE = "bulk"
+MODE = "debug"
 
 # ── Debug word (only used when MODE = "debug") ────────────────────────────────
 # Set to any profession term from your professions CSV.
-DEBUG_WORD = "médico"
+DEBUG_WORD = "abogado"
 
 # ── Output root ───────────────────────────────────────────────────────────────
 OUTPUT_ROOT = "output"
@@ -48,4 +48,4 @@ HF_DATASET_NAME = "wikimedia/wikipedia"
 HF_DATASET_CONFIG = f"20231101.{LANGUAGE}"
 HF_DATASET_SPLIT = "train"
 # Maximum number of sentences to extract from the dataset.
-HF_MAX_SENTENCES = 1000000   
+HF_MAX_SENTENCES = 1000000
