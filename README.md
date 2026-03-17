@@ -5,7 +5,7 @@ for **your language** (Arabic or Spanish).
 
 The pipeline probes four multilingual transformer models layer-by-layer and
 measures whether profession embeddings are geometrically closer to a male
-or female gender direction.  No fine-tuning, no labels — fully unsupervised.
+or female gender direction.  No fine-tuning, no labels, fully unsupervised.
 
 ---
 
@@ -64,9 +64,9 @@ pip install -r requirements.txt
 Open `src/config.py` and set **three things**:
 
 ```python
-LANGUAGE = "ar"        # change to "es" for Spanish
+LANGUAGE = "es"        # change to "ar" for Arabic
 MODE     = "debug"     # start with "debug" to verify setup, then switch to "bulk"
-DEBUG_WORD = "طبيب"    # any term from your professions CSV (for debug mode)
+DEBUG_WORD = "abogado"    # any term from your professions CSV (for debug mode)
 ```
 
 You can comment out models you don't need to run fewer models.
@@ -100,10 +100,10 @@ for sentences containing each anchor/profession word via substring match.
 ### `anchors_{lang}.csv`
 ```
 gender,term
-male,هو
-male,رجل
-female,هي
-female,امرأة
+male,hombre
+male,padre
+female,mujer
+female,madre
 ```
 The pipeline uses these words to build the gender direction in embedding space.
 Each term needs at least **12 sentences** in the corpus (set by `ANCHOR_CONTEXTS`).
@@ -113,9 +113,11 @@ long as most anchors have enough coverage.
 ### `professions_{lang}.csv`
 ```
 profession_id,profession_lang,profession
-ar_001,ar,طبيب
-ar_002,ar,ممرضة
+es_010,es,estudiante
+es_011,es,abogado
+es_012,es,enfermera
 ```
+
 Only the `profession` column is used.  Each term needs at least **20 sentences**
 in the corpus (set by `PROFESSION_CONTEXTS`).  Terms with fewer occurrences
 are skipped and reported in the console output.
