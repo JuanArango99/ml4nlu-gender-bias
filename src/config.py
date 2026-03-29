@@ -24,7 +24,7 @@ MODEL_SLUG_MAP = {
 # ── Run mode ──────────────────────────────────────────────────────────────────
 # "bulk"  → scores all professions, one progress line per word (paper results)
 # "debug" → verbose trace for a single word (use first to verify setup works)
-MODE = "debug"
+MODE = "bulk"
 
 # ── Debug word (only used when MODE = "debug") ────────────────────────────────
 # Set to any profession term from your professions CSV.
@@ -41,7 +41,7 @@ PROFESSION_CONTEXTS = 20  # sentences per profession term
 
 # ── HuggingFace Dataset ───────────────────────────────────────────────────────
 # Set to True to use a dataset from HuggingFace instead of local dummy files.
-USE_HF_DATASET = True
+USE_HF_DATASET = True if LANGUAGE == "es" else False
 HF_DATASET_NAME = "wikimedia/wikipedia"
 # The config name depends on the LANGUAGE setting.
 # Example: "20231101.es" for Spanish, "20231101.ar" for Arabic.
