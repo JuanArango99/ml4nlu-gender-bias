@@ -5,20 +5,24 @@ LANGUAGE = "es"
 # Models to run — all four are listed; comment out any you don't need.
 # Note: xlm-roberta-large is slow on CPU — run it last or separately.
 MODEL_NAMES = [
+    "bert-base-multilingual-cased"
     "xlm-roberta-base",
     "xlm-roberta-large",
     "facebook/xlm-v-base",
     "microsoft/mdeberta-v3-base",
+
 ]
 # To run a single model only, replace the list with a string:
 # MODEL_NAMES = "xlm-roberta-base"
 
 # Short slugs used in output filenames — do not change these.
 MODEL_SLUG_MAP = {
+    "bert-base-multilingual-cased": "mbert",
     "xlm-roberta-base": "xlmr_base",
     "xlm-roberta-large": "xlmr_large",
     "facebook/xlm-v-base": "xlmv_base",
-    "microsoft/mdeberta-v3-base": "mdeberta",
+    "microsoft/mdeberta-v3-base": "mdeberta"
+
 }
 
 # ── Run mode ──────────────────────────────────────────────────────────────────
