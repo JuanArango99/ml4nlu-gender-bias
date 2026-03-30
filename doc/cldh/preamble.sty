@@ -1,0 +1,102 @@
+\ProvidesPackage{preamble}
+
+% paper margins
+\usepackage[margin=3cm]{geometry}
+\usepackage[toc,page]{appendix}
+\usepackage{fancyhdr}
+
+% FIX: font encoding (Removed 'url' from brackets)
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+
+% paragraph typography
+\linespread{1.3}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{epigraph}
+
+\usepackage{threeparttable}
+\usepackage[arabic,english]{babel}
+\usepackage[shortlabels]{enumitem}
+
+% heading formats
+\usepackage{titlesec}
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+
+% content enhancement
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage[bottom]{footmisc}
+
+% quotes and examples
+\theoremstyle{definition}
+\newtheorem{exmp}{Example}[section]
+
+% code and pdf
+\usepackage{listings}
+\usepackage{pdfpages}
+
+% -----------------------------
+% REFERENCES SECTION
+% -----------------------------
+% -----------------------------
+%
+% references
+%
+\usepackage[
+    backend=biber,
+    style=authoryear,      
+    maxcitenames=2,        
+    uniquelist=false,
+    natbib=true            
+]{biblatex}
+
+% IMPORTANT: Ensure this matches your filename exactly
+\addbibresource{references.bib} 
+
+% --- THE ATOMIC HYPERLINK FIX ---
+% This avoids internal biblatex macros and manually builds the link
+\DeclareCiteCommand{\cite}
+  {\usebibmacro{prenote}}
+  {\bibhyperref{\printnames{labelname}\setunit{\addcomma\space}\printfield{labelyear}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\parencite}[\mkbibparens]
+  {\usebibmacro{prenote}}
+  {\bibhyperref{\printnames{labelname}\setunit{\addcomma\space}\printfield{labelyear}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\textcite}
+  {\usebibmacro{prenote}}
+  {\bibhyperref{\printnames{labelname}}\setunit{\addspace}\bibhyperref{\printtext[parens]{\printfield{labelyear}}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+% Setup the colors for the links
+\hypersetup{
+    colorlinks=true,
+    citecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+\def\biblio{
+    \clearpage\printbibliography[heading=bibintoc, title={References}]
+}
+% -----------------------------
