@@ -1,4 +1,4 @@
-\documentclass[english, a4paper, 12pt, twoside]{article}
+\documentclass[english, a4paper, 11pt, twoside]{article}
 
 % -----------------------------
 
@@ -13,8 +13,7 @@
 % preamble
 %
 \usepackage{./cldh/preamble}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% inputenc and fontenc already loaded in preamble.sty
 % -----------------------------
 
 \begin{document}
@@ -57,7 +56,7 @@ This research aims to fill the identified gap with a layer wise, cross linguisti
     \item \textbf{RQ4}: Does attention architecture determine gender bias direction, independent of pretraining data?
 \end{itemize}
 
-\section{Related Work}\label{section-methodology}
+\section{Related Work}\label{section-related-work}
 \subsection{Bias in Static Word Embeddings}
 Early work established that social biases are encoded geometrically in static word embeddings. \textcite{Bolukbasi:2016} derived a gender direction from anchor sets, revealing systematic profession gender associations and proposing projection based debiasing. \textcite{Caliskan:2017} introduced WEAT as a statistical
 framework for implicit associations; \textcite{Garg:2018}  showed embedding bias correlates with historical
@@ -67,12 +66,12 @@ deeper geometric bias, motivating continued geometric analysis.
 \subsection{Interpreting Contextual Representations via Reductions}
 Transformer models produce contextualised representations that vary across inputs and depth, complicating direct application of geometric methods. \textcite{Bommasani:2020} formalised reductions of contextual embeddings to stable word level vectors suitable for geometric analysis, while \textcite{Rogers:2020} surveys the unequal distribution of linguistic information across transformer layers, motivating layer wise analysis.
 
-\subsection{Multilingual Bias and Cross-Lingual Considerations}
+\subsection{Multilingual Bias and Cross Lingual Considerations}
 As multilingual transformers became widely adopted, bias analysis extended beyond English. \textcite{Zhao:2019} and \textcite{Zhao:2020} showed that geometric bias methods transfer to contextual multilingual models and that bias patterns vary substantially across languages, with debiasing in one language not generalising to others. \textcite{Guo:2021} further showed contextualised embeddings encode intersectional associations. These studies predominantly evaluate final layer representations. \textcite{Lauscher:2020}
 showed zero shot cross lingual transfer degrades substantially for typologically distant and low resource languages. 
 
 
-\subsection{Architecture-Driven Effects on Representations}
+\subsection{Architecture Driven Effects on Representations}
 The models evaluated here differ not only in scale but in fundamental attention design. \textcite{He:2021} introduced Disentangled Attention, which separates content and positional information into independent attention matrices, substantially changing how contextual relationships are encoded across layers. \textcite{He:2023} extended this design to multilingual pretraining via an ELECTRA-style training objective, producing the microsoft/mdeberta-v3-base checkpoint evaluated here. \textcite{Liang:2023} enlarged the Sentence Piece vocabulary from 250K tokens (XLM-R) to 1M tokens (XLM-V) to improve tokenisation coverage for
 low resource languages. These architectural and vocabulary decisions constitute the design space whose bias consequences this study directly compares.
 
@@ -178,9 +177,9 @@ To assess measurement robustness, we compute Spearman rank correlation \parencit
 
 $\rho\ell$ = 1 indicates perfect ordinal agreement across professions.
 
-\subsection{Layer-Wise Aggregation}
+\subsection{Layer Wise Aggregation}
 For visualisation we compute the mean projection score across retained profession terms at each layer $\ell$,
-yielding a layer-wise bias trajectory:
+yielding a layer wise bias trajectory:
 
 \begin{equation}
     \overline{\text{Proj}}_\ell = \frac{1}{|P|} \sum_{p \in P} \text{ProjBias}_\ell(p),
@@ -190,32 +189,286 @@ where \textit{P} is the set of retained professions. This trajectory summarises 
 signal evolves across model depth.
 
 
+\graphicspath{{figs/}}
+
 \section{Results}\label{section-results}
-The experimental results show that gender bias is a real and measurable feature in the models in this study. We first verified if our measurement methods were reliable by checking if the two different scoring techniques produced the same results. Over every model, we found nearly perfect agreement in the middle layers, with correlation values staying above 0.99. This high level of consistency proves that the math is picking up on genuine patterns in the word vectors and that the findings are not simply the result of random errors.
 
-For the neutral professions in Group A, many terms like dentista and estudiante stayed close to the neutral mark of zero. However, the data for comerciante (merchant) showed that bias can vary significantly depending on the models' architecture. While mDeBERTa-v3-base correctly identified this word as neutral with a score of -0.0310, xlm-v-base assigned it a strong male score of +1.9509. The XLM-RoBERTa models were in between these values.
+\subsection{Estimator Agreement (RQ3)}
 
-Regarding the gendered pairs in Group B, Masculine professions like abogado and ingeniero showed strong positive values in the projection scores, whereas their feminine counterparts, such as abogada and ingeniera, consistently show negative scores indicating their belonging to the female side. However, there is a significant asymmetry in magnitude. While masculine terms are located very far from the center, the feminine terms stay much closer to the neutral center despite their female leaning.
+Before interpreting bias scores, we verify measurement robustness. Table~\ref{tab:spearman} reports the Spearman rank correlation $\rho$ between the projection and cosine-difference estimators for each model across all layers. Every model achieves a minimum $\rho \geq 0.97$ and a mean above $0.99$, showing a near perfect agreement. The one notable exception is XLM-V at layer~12, where $\rho$ drops to $0.70$, consistent with the representational collapse commonly observed at the final layer.
 
-The layer-wise projection curve demonstrates that the bias signal is not constant across the network. It is weakest in the first layers, reaches its peak intensity in the middle layers (typically between layers 6 and 9), and decreases slightly toward the output layers. It is a pattern that shows how the model builds these gender associations as it processes the input through its internal layers, reaching a maximum point before preparing the final representation.
+\begin{table}[!htbp]
+\centering
+\caption{Estimator agreement: Spearman $\rho$ between projection and cosine-difference scores across layers (Spanish).}
+\label{tab:spearman}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{Min $\rho$} & \textbf{Max $\rho$} & \textbf{Mean $\rho$} \\
+\midrule
+XLM-R Base     & 0.991 & 1.000 & 0.997 \\
+XLM-R Large    & 0.986 & 1.000 & 0.997 \\
+XLM-V Base     & 0.700 & 1.000 & 0.976 \\
+mDeBERTa-v3    & 0.967 & 0.999 & 0.990 \\
+mBERT          & 0.979 & 0.998 & 0.990 \\     
+\bottomrule
+\end{tabular}
+\end{table}
 
-\section{Conclusions}\label{section-conclusions}
-The findings of this study show that language models have the ability to learn the grammatical
-rules of neutral Spanish nouns without direct supervision. For instance, professions
-with -ista or -ante suffixes (e.g., dentista, artista, estudiante, and cantante) are
-consistently clustered near the origin (projection scores close to zero). 
+\subsection{Group A: Invariant Professions (RQ1)}
+
+Table~\ref{tab:groupA} reports projection scores for the ten invariant professions. We report measurements at each model's peak layer (e.g., Layer~9 for XLM-R Base) where bias magnitude is highest. As shown in Figure~\ref{fig:layer_curves}, computing a mean across all layers dilutes the signal because early layers focus on syntax and final layers prepare logits for output. The full layer by layer trajectories are provided in subsequent heatmaps.
+
+Somey terms show neutral morphology: \textit{dentista} ($+0.01$ in XLM-R Base) and \textit{cantante} ($-0.21$ in XLM-R Large) remain near zero. However, other invariant terms exhibit strong male bias. For instance, \textit{comerciante} scores $+2.69$ in XLM-R Base, while mDeBERTa classifies it neutrally ($-0.03$). \textit{Piloto} shows consistently high male bias across all evaluated models.
+
+\begin{table}[!htbp]
+\centering
+\caption{Projection scores for Group~A (invariant professions) at each model's peak layer. Positive values indicate male bias.}
+\label{tab:groupA}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Profession} & \textbf{XLM-R B} & \textbf{XLM-R L} & \textbf{XLM-V} & \textbf{mDeBERTa} & \textbf{mBERT} \\
+ & \textbf{(L9)} & \textbf{(L16)} & \textbf{(L7)} & \textbf{(L5)} & \textbf{(L11)} \\
+\midrule
+policía       & $+2.09$ & $+0.85$ & $-0.77$ & $-0.22$ & $+1.12$ \\
+artista       & $+3.08$ & $+2.14$ & $+1.49$ & $+0.64$ & $+5.04$ \\
+comerciante   & $+2.69$ & $+1.41$ & $+2.36$ & $-0.05$ & $+3.71$ \\
+periodista    & $+2.56$ & $+1.03$ & $+0.81$ & $+0.26$ & $+3.13$ \\
+piloto        & $+3.33$ & $+1.78$ & $+2.03$ & $+1.22$ & $+4.72$ \\
+cantante      & $+2.15$ & $-0.21$ & $+0.01$ & $+0.31$ & $+0.36$ \\
+juez          & $+2.56$ & $+1.96$ & $+1.19$ & $+0.76$ & $+3.32$ \\
+dentista      & $+2.08$ & $+1.41$ & $+1.02$ & $+0.19$ & $+3.00$ \\
+estudiante    & $+2.40$ & $+1.74$ & $+1.35$ & $+0.76$ & $+4.43$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
-However, the results also highlight a conflict between these linguistic rules and societal frequency. When a profession is historically associated with men in the real world, the statistical bias in the training text often overrides the grammar. This explains why a word like \textit{comerciante} appears heavily biased in certain models despite being grammatically neutral. The better performance of \texttt{mDeBERTa-v3-base} in these cases suggests that certain model designs, particularly those with different attention mechanisms, might be more effective at keeping grammar and social stereotypes separate.
+\subsection{Group B: Gendered Profession Pairs (RQ1)}\label{subsec:groupB}
 
-Finally, the data show that the Spanish masculine generic creates a "masculine default" within the vector space. Because masculine forms appear much more frequently and in more varied contexts, the models treat them as the standard representation and treat feminine forms as secondary variations. This can be seen by the fact that feminine terms stay closer to the neutral origin than masculine terms do. This indicates that even though the models acknowledge the feminine gender, the masculine form acts as the primary geometric anchor for the concept of the profession itself. Consequently, as long as models learn from human generated text, the heavy influence of social bias will likely keep prioritizing deep rooted stereotypes over the strict grammatical rules.
+Table~\ref{tab:groupB} presents peak layer projection scores for the masculine and feminine forms of some of the gendered profession, alongside their magnitude asymmetry ($\Delta = |proj_M| - |proj_F|$). Figure~\ref{fig:asymmetry} visualises this geometry for XLM-R Base.
+
+While masculine forms align positively and feminine forms align negatively, the absolute magnitude of masculine scores is consistently higher. For example, in XLM-R Base at layer~9, \textit{profesor} scores $+3.45$ while \textit{profesora} scores $+0.08$ ($\Delta = 3.37$). This asymmetry indicates that masculine forms serve as the default geometric anchor for the profession concept, effectively treating feminine forms as semantic deviations. Figure~\ref{fig:gender_gap} further demonstrates that this massive disparity between masculine and feminine projections is not an isolated artifact of the peak layer, but a persistent mathematical reality across the entire depth of the architecture.
+
+\begin{table}[!htbp]
+\centering
+\caption{Peak layer projection scores for Group~B gendered pairs (XLM-R Base, Layer~9). $\Delta = |proj_M| - |proj_F|$. Positive $\Delta$ indicates masculine dominance.}
+\label{tab:groupB}
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Profession} & \textbf{Masculine} & \textbf{Feminine} & $\boldsymbol{\Delta}$ \\
+\midrule
+abogado/a     & $+3.48$ & $+0.68$ & $+2.80$ \\
+profesor/a    & $+3.45$ & $+0.08$ & $+3.37$ \\
+mecánico/a    & $+2.94$ & $+1.15$ & $+1.80$ \\
+cocinero/a    & $+2.90$ & $+0.56$ & $+2.34$ \\
+minero/a      & $+2.66$ & $+0.90$ & $+1.76$ \\
+arquitecto/a  & $+3.06$ & $+1.52$ & $+1.54$ \\
+ingeniero/a   & $+3.15$ & $+0.88$ & $+2.27$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{fig3_asymmetry.pdf}
+\caption{Masculine vs.\ feminine projection scores at peak layer~9 for XLM-RoBERTa Base.}
+\label{fig:asymmetry}   
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{fig7_gender_gap.pdf}
+\caption{Layer wise mean projections for masculine vs.\ feminine forms in XLM-RoBERTa Base. The masculine forms persistently dominate the semantic space across all network depths.}
+\label{fig:gender_gap}   
+\end{figure}
 
 
-All experiments are implemented in Python and the full pipeline is publicly available at https://github.com/HDGeeks/ML4NLU-PAPER.
+\subsection{Layer Wise Bias Trajectory (RQ2)}\label{subsec:layers}
+
+Figure~\ref{fig:layer_curves} displays the mean projection score across representations at each transformer layer. XLM-R Base, XLM-R Large, and XLM-V share a rise peak decay trajectory: bias is weak initially, peaks in the middle layers (7 to 16), and decreases toward output generation. This matches observations that middle layers encode core semantic relationships.
+
+In contrast, mDeBERTa-v3-base never develops the male biased signal seen in RoBERTa models but instead, its projection remains near zero or slightly negative across all layers. This architectural shift is analysed in Section~\ref{section-discussion}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{fig1_layer_curves.pdf}
+\caption{Layer wise mean gender projection across all professions for four Spanish models. The three RoBERTa family models show a rise, peak and decay pattern while mDeBERTa-v3 stays near or below zero.}
+\label{fig:layer_curves}
+\end{figure}
+
+
+\subsection{Architecture-Driven Direction Reversal (RQ4)}
+
+Figure~\ref{fig:model_comparison} contrasts per profession heatmaps for XLM-R Base and mDeBERTa-v3. While XLM-R Base displays positive male values in middle layers, mDeBERTa projects predominantly negative or near zero values.
+
+Since both models use comparable training corpora, this results in a reversal likelihood from mDeBERTa's \textit{Disentangled Attention} mechanism. By separating content and positional matrices, the model mitigates the accumulation of gender associations from grammatical context into the core representations.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{fig6_model_comparison.pdf}
+\caption{Per profession projection heatmaps: XLM-RoBERTa Base (left) vs.\ mDeBERTa-v3 (right). Disentangled Attention produces a reversal in bias direction across all professions. Layer~12 is excluded for mDeBERTa due to ELECTRA-head artifacts.}
+\label{fig:model_comparison}
+\end{figure}
+
+The full per-profession heatmap for XLM-R Base (Figure~\ref{fig:heatmap}) illustrates the layered structure: Group~A terms cluster near the boundary between red and blue, while Group~B masculine terms are deep red and feminine terms are deep blue.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{fig2_heatmap_xlmr_base.pdf}
+\caption{Full per profession heatmap for XLM-RoBERTa Base. Horizontal lines separate Group~A (invariant), Group~B masculine, and Group~B feminine professions.}
+\label{fig:heatmap}
+\end{figure}
+
+
+\subsection{Cross Lingual Patterns (RQ1)}\label{subsec:crosslingual}
+
+To contextualise these results, Figure~\ref{fig:crosslingual} maps the layer wise projection for XLM-RoBERTa Base across Spanish, Arabic, and Tigrinya, enabling a controlled comparison. Table~\ref{tab:crosslingual} provides key metrics.
+
+Despite large disparities in pretraining corpus size and morphological structure, the bias trajectory is highly consistent. For all three languages, XLM-R Base produces a smooth rise that peaks precisely at Layer~9, with magnitudes bounded between $+2.15$ and $+2.99$. This indicates that the base architecture structures gender bias uniformly across resource levels.
+
+\begin{table}[!htbp]
+\centering
+\caption{Cross lingual summary: layer wise projection statistics for 12-layer models.}
+\label{tab:crosslingual}
+\small
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Lang.} & \textbf{Model} & \textbf{Peak Layer} & \textbf{Peak Proj.} & \textbf{Min $\rho$} & $n$ (prof.) \\
+\midrule
+Spanish  & XLM-R Base & 9 & $+2.15$ & 0.991 & 25 \\
+Arabic   & XLM-R Base & 9 & $+2.64$ & 0.964 & 23 \\
+Tigrinya & XLM-R Base & 9 & $+2.99$ & 0.992 & 30 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{fig4_crosslingual.pdf}
+\caption{Cross lingual layer wise mean projection for XLM-RoBERTa Base across Spanish, Arabic, and Tigrinya. Remarkably, the architecture encodes bias with an identical structural trajectory (peaking exactly at Layer~9) regardless of the language's resource level.}
+\label{fig:crosslingual}
+\end{figure}
+
+
+% ─────────────────────────────────────────────────────────────────────────────
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Discussion and Conclusions}\label{section-discussion}
+
+\subsection{Grammatical Neutrality vs.\ Societal Frequency}
+Multilingual transformers learn morphological neutrality without explicit supervision, locating invariant professions (\textit{dentista}, \textit{cantante}) near the geometric origin. However, statistical frequency in the pretraining corpus overrides grammatical rules for historically male dominated roles. For example, XLM-R Base projects the invariant \textit{comerciante} ($+2.69$) similarly to the explicitly masculine \textit{mecánico} ($+2.94$). Only mDeBERTa-v3 suppresses this effect ($-0.03$), indicating that architectural design also has an influence in the conflict between grammar and frequency.
+
+\subsection{The Masculine Default}
+The asymmetry analysis shows that masculine forms occupy a dominant position as the default representation of a profession. Feminine forms correctly orient toward the female centroid but remain closer to the origin. By preserving this data asymmetry or imbalance, the models treat masculine professions as more semantically central, carrying practical implications for certain applications like search retrieval or automated text analysis, and the interpretability research.
+
+\subsection{Architecture over Pretraining Data}
+Our results emphasize architecture as a dominant factor in bias encoding. mDeBERTa-v3 reverses the bias direction relative to RoBERTa-family models, preserving relative profession rankings ($\rho > 0.97$) but flipping their geometric orientation. We attribute this to Disentangled Attention, by separating content from positional context, the model prevents societal frequencies from having too much influence on the gender direction.
+
+Similarly, the cross lingual analysis shows that semantic structures depend less on pretraining volume than often assumed. XLM-R Base encodes bias with an identical structural trajectory (peaking at Layer~9) across Spanish, Arabic, and Tigrinya, despite massive disparities in corpus size. This suggests the attention mechanism functions as a universal template for how abstractions like gender are structured.
+
+\subsection{Final Remarks and Limitations}
+Since we only looked at base embeddings without fine tuning, it's possible these bias patterns could change once the models are adapted for specific tasks. Moreover, our anchor sets and Spanish context corpus may not capture all domains of language use. 
+
+In conclusion, multilingual transformers encode measurable geometric gender bias that peaks in the middle semantic layers. Evaluating fairness exclusively at the final layer might underestimate magnitude. Our results suggest that measuring geometric structures across layers is more reliable. Furthermore, architectural choices like attention factorisation seem to inherently mitigate social bias, bypassing the need for explicit debiasing pipelines.
+
+\subsection*{Reproducibility Statement}
+To facilitate full reproducibility, the source code, data parsing scripts, and complete evaluation pipeline used in this study are publicly available in our GitHub repository: \url{https://github.com/JuanArango99/ml4nlu-gender-bias}.
 
 
 % END
-% -----------------------------
+
+% ─────────────────────────────────────────────────────────────────────────────
+\appendix
+\section*{Appendix A. Notable Individual Model Trajectories}
+\addcontentsline{toc}{section}{Appendix A. Notable Individual Model Trajectories}
+
+While the main text aggregates layer wise projections or restricts analysis to XLM-RoBERTa Base to uncover structural consistency, individual models exhibit distinct edge case behaviors. We highlight four examples below.
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../output/ti/bert-base-multilingual-cased/figs/ti_mbert_projection_curve.png}
+        \caption{Tigrinya (mBERT): Extreme low-resource collapse. With insufficient pretraining data, mBERT fails to generate a societal frequency signal, collapsing into arbitrary negative projections.}
+        \label{fig:app_ti_mbert}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../output/ar/xlm-roberta-large/figs/ar_xlmr_large_projection_curve.png}
+        \caption{Arabic (XLM-R Large): Late stage peaking. While Base models peak near layer~9, this Large model peaks at layer~14 with a $+4.54$ magnitude.}
+        \label{fig:app_ar_xlmrl}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../output/es/microsoft_mdeberta-v3-base/figs/es_mdeberta_projection_curve.png}
+        \caption{Spanish (mDeBERTa-v3): Disentangled Attention reversal. The projection score stays negative across all middle layers, reversing the RoBERTa upward curve.}
+        \label{fig:app_es_mdeb}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../output/es/facebook_xlm-v-base/figs/es_xlmv_base_projection_curve.png}
+        \caption{Spanish (XLM-V Base): Final layer artifact spike. The bias score exhibits an unnatural spike at layer~12 ($+3.11$) possibly due to token level output preparation.}
+        \label{fig:app_es_xlmv}
+    \end{minipage}
+\end{figure}
+
+\section*{Appendix B. Evaluated Lexicons (Spanish)}
+\addcontentsline{toc}{section}{Appendix B. Evaluated Lexicons (Spanish)}
+
+This section details the explicit Spanish word sets used to construct the gender subspace and evaluate profession embeddings. The anchor sets (Table~\ref{tab:app_anchors_es}) capture fundamental gender semantics, while the profession sets (Table~\ref{tab:app_professions_es}) are divided into morphologically invariant (Group~A) and gender-inflected (Group~B) terms.
+
+\begin{table}[!htbp]
+\centering
+\caption{Spanish gender anchor sets used to define the semantic subspace.}
+\label{tab:app_anchors_es}
+\small
+\begin{tabular}{ll}
+\toprule
+\textbf{Masculine Anchors} & \textbf{Feminine Anchors} \\
+\midrule
+hombre & mujer \\
+niño & niña \\
+padre & madre \\
+él & ella \\
+hermano & hermana \\
+esposo & esposa \\
+abuelo & abuela \\
+hijo & hija \\
+tío & tía \\
+varón & señora \\
+chico & chica \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\caption{Spanish profession terms evaluated in this study, categorized by morphological group.}
+\label{tab:app_professions_es}
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Group A (Invariant)} & \textbf{Group B (Masculine)} & \textbf{Group B (Feminine)} \\
+\midrule
+policía & abogado & abogada \\
+recepcionista & enfermero & enfermera \\
+artista & agricultor & agricultora \\
+comerciante & profesor & profesora \\
+periodista & mecánico & mecánica \\
+piloto & cocinero & cocinera \\
+cantante & limpiador & limpiadora \\
+juez & minero & minera \\
+dentista & arquitecto & arquitecta \\
+estudiante & ingeniero & ingeniera \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 % -----------------------------
 
 %

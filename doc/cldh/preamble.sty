@@ -1,7 +1,7 @@
 \ProvidesPackage{preamble}
 
 % paper margins
-\usepackage[margin=3cm]{geometry}
+\usepackage[margin=2cm]{geometry}
 \usepackage[toc,page]{appendix}
 \usepackage{fancyhdr}
 
@@ -18,10 +18,9 @@
 \usepackage{microtype}
 \usepackage{epigraph}
 
-\usepackage{threeparttable}
-\usepackage[arabic,english]{babel}
 \usepackage[shortlabels]{enumitem}
-
+\usepackage{threeparttable}
+% \usepackage[arabic,english]{babel}
 % heading formats
 \usepackage{titlesec}
 \titleformat*{\section}{\LARGE\bfseries}
@@ -50,13 +49,16 @@
 \usepackage{listings}
 \usepackage{pdfpages}
 
+
+
+\usepackage{caption} 
+\captionsetup[table]{skip=10pt} % Adjust the 10pt to whatever feels right (8pt-12pt is standard)
+
+
 % -----------------------------
 % REFERENCES SECTION
 % -----------------------------
-% -----------------------------
-%
-% references
-%
+
 \usepackage[
     backend=biber,
     style=authoryear,      

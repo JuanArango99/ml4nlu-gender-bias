@@ -17,7 +17,7 @@
 
 \begin{titlepage}
 	
-    \newgeometry{top=1 in, bottom=1 in, left=1 in, right= 1 in} 
+    \newgeometry{top=1 in, bottom=2 in, left=1 in, right= 1 in} 
     \thispagestyle{frontpage}
 
     \begin{center}
@@ -26,28 +26,38 @@
         
         {\Huge \textbf{\thesistitle}} \\
         
-        \vspace*{0.5\baselineskip}
+        \vspace*{1.5\baselineskip}
 
-        \large{\moduletitle (\moduleid)} \\
+        {\large \moduletitle \ (\moduleid)} \\
+        {\large \courseofstudy} \\
 
-        \large{\courseofstudy} \\
+        \vfill
 
-        \vspace{\baselineskip}
+        \large{submitted by} \\
+        \vspace{0.8\baselineskip}
 
-        submitted by \\
+        % Three Authors in a clean table
+        {\large
+        \begin{tabular}{c c c}
+            \textbf{\authorone} & \textbf{\authortwo} & \textbf{\authorthree} \\
+            \small Matr. \authoridone & \small Matr. \authoridtwo & \small Matr. \authoridthree \\
+            \small \authoremailone & \small \authoremailtwo & \small \authoremailthree \\
+        \end{tabular}
+        }
 
-        \vspace{0.5\baselineskip}
+        \vfill        
 
-        \large{\textbf{\authorname} (Matr. \authorid)} \\
-        \textit{\authormail} \\
-        \authoraddress
-
-        \vspace{\baselineskip}        
-
+        % Instructor and Date at the bottom
+        \begin{tabular}{r l}
+            \textbf{Instructor:} & \supervisor \\
+            % \textbf{Date:} & \today
+        \end{tabular}
 
     \end{center}
 
+    
 \end{titlepage}
+\restoregeometry % Returns margins to normal for the rest of the doc
 
 % -----------------------------
 %
