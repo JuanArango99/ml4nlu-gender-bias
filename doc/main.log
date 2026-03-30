@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.3.29)  30 MAR 2026 23:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.3.29)  30 MAR 2026 23:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,8 +8,8 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count196
 \c@section=\count197
@@ -937,6 +937,10 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
 
+
+LaTeX Warning: Unused global option(s):
+    [11.5pt].
+
 (./main.aux)
 \openout1 = `main.aux'.
 
@@ -978,12 +982,12 @@ LaTeX Font Info:    ... okay on input line 19.
 * \topmargin=-52.36449pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=11.0pt
+* \topskip=10.0pt
 * \footskip=30.0pt
-* \marginparwidth=103.0pt
-* \marginparsep=10.0pt
+* \marginparwidth=111.0pt
+* \marginparsep=11.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -1095,12 +1099,12 @@ Package biblatex Info: Reference segment=0 on input line 19.
 * \topmargin=-37.0pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=11.0pt
+* \topskip=10.0pt
 * \footskip=30.0pt
-* \marginparwidth=103.0pt
-* \marginparsep=10.0pt
+* \marginparwidth=111.0pt
+* \marginparsep=11.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -1137,17 +1141,22 @@ c/dvips/cm-super/cm-super-t1.enc}
 
 
  <./cldh/university_logo.png>])
+Underfull \vbox (badness 2173) has occurred while \output is active []
+
+
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.55     \item \textbf
-                      {RQ3}: Do two independent geometric estimators agree o...
-[1
+l.65 
+      [1
 
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Underfull \vbox (badness 1622) has occurred while \output is active []
+
+
 
 [2]
 Package microtype Info: Loading generic protrusion settings for font family
@@ -1157,98 +1166,97 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 [3]
-
-[4]
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 147.
 
 
-[5]
+[4]
 
-[6]
-<figs/fig3_asymmetry.pdf, id=266, 634.13725pt x 308.76585pt>
+[5]
+<figs/fig3_asymmetry.pdf, id=259, 634.13725pt x 308.76585pt>
 File: figs/fig3_asymmetry.pdf Graphic file (type pdf)
 <use figs/fig3_asymmetry.pdf>
 Package pdftex.def Info: figs/fig3_asymmetry.pdf  used on input line 275.
 (pdftex.def)             Requested size: 483.69687pt x 235.51724pt.
-<figs/fig7_gender_gap.pdf, id=267, 561.53288pt x 345.13316pt>
+<figs/fig7_gender_gap.pdf, id=260, 561.53288pt x 345.13316pt>
 File: figs/fig7_gender_gap.pdf Graphic file (type pdf)
 <use figs/fig7_gender_gap.pdf>
 Package pdftex.def Info: figs/fig7_gender_gap.pdf  used on input line 282.
 (pdftex.def)             Requested size: 483.69687pt x 297.28795pt.
-
-Underfull \vbox (badness 7030) has occurred while \output is active []
-
-
-
-[7 <./figs/fig3_asymmetry.pdf>]
-<figs/fig1_layer_curves.pdf, id=326, 561.92558pt x 309.5201pt>
+<figs/fig1_layer_curves.pdf, id=263, 561.92558pt x 309.5201pt>
 File: figs/fig1_layer_curves.pdf Graphic file (type pdf)
 <use figs/fig1_layer_curves.pdf>
 Package pdftex.def Info: figs/fig1_layer_curves.pdf  used on input line 296.
 (pdftex.def)             Requested size: 483.69687pt x 266.43712pt.
-<figs/fig6_model_comparison.pdf, id=328, 982.31145pt x 507.3925pt>
+
+
+[6]
+
+[7 <./figs/fig3_asymmetry.pdf> <./figs/fig7_gender_gap.pdf>]
+<figs/fig6_model_comparison.pdf, id=381, 982.31145pt x 507.3925pt>
 File: figs/fig6_model_comparison.pdf Graphic file (type pdf)
 <use figs/fig6_model_comparison.pdf>
 Package pdftex.def Info: figs/fig6_model_comparison.pdf  used on input line 310
 .
 (pdftex.def)             Requested size: 483.69687pt x 249.84776pt.
-<figs/fig2_heatmap_xlmr_base.pdf, id=330, 666.48192pt x 490.1951pt>
+<figs/fig2_heatmap_xlmr_base.pdf, id=383, 666.48192pt x 490.1951pt>
 File: figs/fig2_heatmap_xlmr_base.pdf Graphic file (type pdf)
 <use figs/fig2_heatmap_xlmr_base.pdf>
 Package pdftex.def Info: figs/fig2_heatmap_xlmr_base.pdf  used on input line 31
 9.
 (pdftex.def)             Requested size: 483.69687pt x 355.76007pt.
-
-
-[8 <./figs/fig7_gender_gap.pdf>]
-
-[9 <./figs/fig1_layer_curves.pdf> <./figs/fig6_model_comparison.pdf>]
-
-[10 <./figs/fig2_heatmap_xlmr_base.pdf>]
-<figs/fig4_crosslingual.pdf, id=598, 561.92558pt x 309.5201pt>
+<figs/fig4_crosslingual.pdf, id=386, 561.92558pt x 309.5201pt>
 File: figs/fig4_crosslingual.pdf Graphic file (type pdf)
 <use figs/fig4_crosslingual.pdf>
 Package pdftex.def Info: figs/fig4_crosslingual.pdf  used on input line 349.
 (pdftex.def)             Requested size: 483.69687pt x 266.43712pt.
 
+Underfull \vbox (badness 7907) has occurred while \output is active []
 
-[11 <./figs/fig4_crosslingual.pdf>]
+
+
+[8 <./figs/fig1_layer_curves.pdf>]
+
+[9 <./figs/fig6_model_comparison.pdf> <./figs/fig2_heatmap_xlmr_base.pdf>]
+
+[10 <./figs/fig4_crosslingual.pdf>]
+
+[11]
 
 [12]
 <../output/ti/bert-base-multilingual-cased/figs/ti_mbert_projection_curve.png, 
-id=667, 722.7pt x 289.08pt>
+id=675, 722.7pt x 289.08pt>
 File: ../output/ti/bert-base-multilingual-cased/figs/ti_mbert_projection_curve.
 png Graphic file (type png)
 <use ../output/ti/bert-base-multilingual-cased/figs/ti_mbert_projection_curve.p
 ng>
 Package pdftex.def Info: ../output/ti/bert-base-multilingual-cased/figs/ti_mber
-t_projection_curve.png  used on input line 392.
+t_projection_curve.png  used on input line 398.
 (pdftex.def)             Requested size: 232.17242pt x 92.86919pt.
-<../output/ar/xlm-roberta-large/figs/ar_xlmr_large_projection_curve.png, id=668
+<../output/ar/xlm-roberta-large/figs/ar_xlmr_large_projection_curve.png, id=676
 , 722.7pt x 289.08pt>
 File: ../output/ar/xlm-roberta-large/figs/ar_xlmr_large_projection_curve.png Gr
 aphic file (type png)
 <use ../output/ar/xlm-roberta-large/figs/ar_xlmr_large_projection_curve.png>
 Package pdftex.def Info: ../output/ar/xlm-roberta-large/figs/ar_xlmr_large_proj
-ection_curve.png  used on input line 398.
+ection_curve.png  used on input line 404.
 (pdftex.def)             Requested size: 232.17242pt x 92.86919pt.
 <../output/es/microsoft_mdeberta-v3-base/figs/es_mdeberta_projection_curve.png,
- id=669, 722.7pt x 289.08pt>
+ id=677, 722.7pt x 289.08pt>
 File: ../output/es/microsoft_mdeberta-v3-base/figs/es_mdeberta_projection_curve
 .png Graphic file (type png)
 <use ../output/es/microsoft_mdeberta-v3-base/figs/es_mdeberta_projection_curve.
 png>
 Package pdftex.def Info: ../output/es/microsoft_mdeberta-v3-base/figs/es_mdeber
-ta_projection_curve.png  used on input line 408.
+ta_projection_curve.png  used on input line 414.
 (pdftex.def)             Requested size: 232.17242pt x 92.86919pt.
 <../output/es/facebook_xlm-v-base/figs/es_xlmv_base_projection_curve.png, id=67
-0, 722.7pt x 289.08pt>
+8, 722.7pt x 289.08pt>
 File: ../output/es/facebook_xlm-v-base/figs/es_xlmv_base_projection_curve.png G
 raphic file (type png)
 <use ../output/es/facebook_xlm-v-base/figs/es_xlmv_base_projection_curve.png>
 Package pdftex.def Info: ../output/es/facebook_xlm-v-base/figs/es_xlmv_base_pro
-jection_curve.png  used on input line 414.
+jection_curve.png  used on input line 420.
 (pdftex.def)             Requested size: 232.17242pt x 92.86919pt.
 
 
@@ -1257,9 +1265,7 @@ ng> <../output/ar/xlm-roberta-large/figs/ar_xlmr_large_projection_curve.png> <.
 ./output/es/microsoft_mdeberta-v3-base/figs/es_mdeberta_projection_curve.png> <
 ../output/es/facebook_xlm-v-base/figs/es_xlmv_base_projection_curve.png>]
 
-[14]
-
-[15] (./main.aux)
+[14] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1271,35 +1277,38 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28931 strings out of 473197
- 499950 string characters out of 5718605
- 1384465 words of memory out of 5000000
- 51452 multiletter control sequences out of 15000+600000
- 592355 words of font info for 220 fonts, out of 8000000 for 9000
+ 28925 strings out of 473197
+ 499744 string characters out of 5718605
+ 1388394 words of memory out of 5000000
+ 51451 multiletter control sequences out of 15000+600000
+ 591282 words of font info for 215 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  101i,15n,131p,1193b,1779s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1
-000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/
-texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/pu
-blic/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx17
-28.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/t
-exmf/fonts/type1/public/cm-super/sfcc1095.pfb></usr/share/texmf/fonts/type1/pub
-lic/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm109
-5.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/te
-xmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/publ
-ic/cm-super/sfti1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095
-.pfb>
-Output written on main.pdf (16 pages, 868099 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><
+/usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fon
+ts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></u
+sr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts
+/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-sup
+er/sfti0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></us
+r/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on main.pdf (15 pages, 904554 bytes).
 PDF statistics:
- 809 PDF objects out of 1000 (max. 8388607)
- 407 compressed objects within 5 object streams
- 85 named destinations out of 1000 (max. 500000)
- 64296 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 825 PDF objects out of 1000 (max. 8388607)
+ 416 compressed objects within 5 object streams
+ 84 named destinations out of 1000 (max. 500000)
+ 62248 words of extra memory for PDF output out of 74296 (max. 10000000)
 

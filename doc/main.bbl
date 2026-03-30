@@ -375,7 +375,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the 2019 Workshop on Gender Bias in Natural Language Processing}
+      \field{booktitle}{Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)}
       \field{title}{Lipstick on a pig: {D}ebiasing methods cover up systematic gender biases in word embeddings but do not remove them}
       \field{year}{2019}
     \endentry
@@ -554,36 +554,42 @@
       \endverb
     \endentry
     \entry{Liang:2023}{inproceedings}{}{}
-      \name{author}{7}{}{%
+      \name{author}{8}{}{%
         {{un=0,uniquepart=base,hash=380268f34cc781386c598c09f1926aac}{%
            family={Liang},
            familyi={L\bibinitperiod},
            given={Davis},
            giveni={D\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=5ecd7d03630244e69ce851fa2d5fe67e}{%
-           family={Xu},
-           familyi={X\bibinitperiod},
+        {{un=0,uniquepart=base,hash=c262c6282ae4d1aa5186e443dae71ecf}{%
+           family={Gonen},
+           familyi={G\bibinitperiod},
            given={Hila},
            giveni={H\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=1c6380a4163e0a54a999b5e92ad2b00d}{%
-           family={Shi},
-           familyi={S\bibinitperiod},
-           given={Punit\bibnamedelima Singh},
-           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod},
+        {{un=0,uniquepart=base,hash=4bf12306f229966567f3fa80a61f52c9}{%
+           family={Mao},
+           familyi={M\bibinitperiod},
+           given={Yuning},
+           giveni={Y\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=b01d380a5e0f7e8faa2cb6de400bd0fb}{%
-           family={Iyer},
-           familyi={I\bibinitperiod},
-           given={Srinivasan},
-           giveni={S\bibinitperiod},
+        {{un=0,uniquepart=base,hash=87e1cd3cb3c64f79a269f8eb6ca4689c}{%
+           family={Hou},
+           familyi={H\bibinitperiod},
+           given={Rui},
+           giveni={R\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=2f4ef7b0cabcbf1844de5da11bbb6e99}{%
-           family={Ghosh},
+        {{un=0,uniquepart=base,hash=78a420900f50a8470ad085fb05231bf6}{%
+           family={Goyal},
            familyi={G\bibinitperiod},
-           given={Subhabrata},
-           giveni={S\bibinitperiod},
+           given={Naman},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=48c4948c609cf46c9b488f9abb83441d}{%
+           family={Ghazvininejad},
+           familyi={G\bibinitperiod},
+           given={Marjan},
+           giveni={M\bibinitperiod},
            givenun=0}}%
         {{un=0,uniquepart=base,hash=1dbd3a5b42828fb2cebd7786488ba425}{%
            family={Zettlemoyer},
@@ -591,24 +597,24 @@
            given={Luke},
            giveni={L\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=09002dc86e3060fd9d68dec0211c0f18}{%
-           family={Mehdad},
-           familyi={M\bibinitperiod},
-           given={Yashar},
-           giveni={Y\bibinitperiod},
+        {{un=0,uniquepart=base,hash=2118ff6f53e7a26f72795cd86e0272e3}{%
+           family={Khabsa},
+           familyi={K\bibinitperiod},
+           given={Madian},
+           giveni={M\bibinitperiod},
            givenun=0}}%
       }
       \list{publisher}{1}{%
         {Association for Computational Linguistics}%
       }
       \strng{namehash}{732054766ac4e1351cd096519894facc}
-      \strng{fullhash}{a8030a37125360058af0415f081ca958}
-      \strng{fullhashraw}{a8030a37125360058af0415f081ca958}
+      \strng{fullhash}{75aebb6c1f36e294b67f9f37cd4c9eda}
+      \strng{fullhashraw}{75aebb6c1f36e294b67f9f37cd4c9eda}
       \strng{bibnamehash}{732054766ac4e1351cd096519894facc}
       \strng{authorbibnamehash}{732054766ac4e1351cd096519894facc}
       \strng{authornamehash}{732054766ac4e1351cd096519894facc}
-      \strng{authorfullhash}{a8030a37125360058af0415f081ca958}
-      \strng{authorfullhashraw}{a8030a37125360058af0415f081ca958}
+      \strng{authorfullhash}{75aebb6c1f36e294b67f9f37cd4c9eda}
+      \strng{authorfullhashraw}{75aebb6c1f36e294b67f9f37cd4c9eda}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{extradatescope}{labelyear}
@@ -618,8 +624,8 @@
       \field{booktitle}{Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing}
       \field{title}{{XLM-V}: {O}vercoming the vocabulary bottleneck in multilingual masked language models}
       \field{year}{2023}
-      \field{pages}{13596\bibrangedash 13610}
-      \range{pages}{15}
+      \field{pages}{13142\bibrangedash 13152}
+      \range{pages}{11}
     \endentry
     \entry{Manning:2008}{book}{}{}
       \name{author}{3}{}{%

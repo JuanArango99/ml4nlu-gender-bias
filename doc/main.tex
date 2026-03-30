@@ -1,4 +1,4 @@
-\documentclass[english, a4paper, 11pt, twoside]{article}
+\documentclass[english, a4paper, 11.5pt, twoside]{article}
 
 % -----------------------------
 
@@ -7,7 +7,7 @@
 %
 \input{config.tex}
 
-% -----------------------------
+% -----------------------------s
 
 %
 % preamble
@@ -97,7 +97,7 @@ We evaluate four pretrained multilingual transformer models without fine tuning.
     This model maintains a 12-layer architecture (13 hidden states) but features an expanded SentencePiece vocabulary of 1M tokens. This design choice aims to solve the "vocabulary bottleneck" observed in low-resource language processing.
 
     \item \textbf{mDeBERTa-v3-base} (\texttt{microsoft/mdeberta-v3-base}; \cite{He:2023}): 
-    Comprising 12 layers (13 hidden states), this model utilizes \textit{Disentangled Attention}. Unlike the standard Transformer architecture which sums content and position embeddings, DeBERTa represents them separately. The attention weight $A_{i,j}$ between token $i$ and $j$ is calculated as:
+    Comprising 12 layers (13 hidden states), this model utilizes \textit{Disentangled Attention}. Unlike the standard Transformer architecture which sums content and position embeddings, DeBERTa represents them separately. 
 
 \end{itemize}
 
@@ -378,12 +378,18 @@ To facilitate full reproducibility, the source code, data parsing scripts, and c
 
 % END
 
+%
+% references
+%
+\newpage
+\printbibliography
+
 % ─────────────────────────────────────────────────────────────────────────────
 \appendix
 \section*{Appendix A. Notable Individual Model Trajectories}
 \addcontentsline{toc}{section}{Appendix A. Notable Individual Model Trajectories}
 
-While the main text aggregates layer wise projections or restricts analysis to XLM-RoBERTa Base to uncover structural consistency, individual models exhibit distinct edge case behaviors. We highlight four examples below.
+While the main text aggregates layer wise projections or restricts analysis to XLM-RoBERTa Base to uncover structural consistency, individual models show distinct behaviors. We use four examples below.
 
 \begin{figure}[!htbp]
     \centering
@@ -431,17 +437,17 @@ This section details the explicit Spanish word sets used to construct the gender
 \toprule
 \textbf{Masculine Anchors} & \textbf{Feminine Anchors} \\
 \midrule
-hombre & mujer \\
-niño & niña \\
-padre & madre \\
-él & ella \\
-hermano & hermana \\
-esposo & esposa \\
-abuelo & abuela \\
-hijo & hija \\
-tío & tía \\
-varón & señora \\
-chico & chica \\
+hombre \textit{(man)} & mujer \textit{(woman)} \\
+niño \textit{(boy)} & niña \textit{(girl)} \\
+padre \textit{(father)} & madre \textit{(mother)} \\
+él \textit{(he)} & ella \textit{(she)} \\
+hermano \textit{(brother)} & hermana \textit{(sister)} \\
+esposo \textit{(husband)} & esposa \textit{(wife)} \\
+abuelo \textit{(grandfather)} & abuela \textit{(grandmother)} \\
+hijo \textit{(son)} & hija \textit{(daughter)} \\
+tío \textit{(uncle)} & tía \textit{(aunt)} \\
+varón \textit{(male)} & señora \textit{(lady)} \\
+chico \textit{(boy/guy)} & chica \textit{(girl/gal)} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -455,26 +461,20 @@ chico & chica \\
 \toprule
 \textbf{Group A (Invariant)} & \textbf{Group B (Masculine)} & \textbf{Group B (Feminine)} \\
 \midrule
-policía & abogado & abogada \\
-recepcionista & enfermero & enfermera \\
-artista & agricultor & agricultora \\
-comerciante & profesor & profesora \\
-periodista & mecánico & mecánica \\
-piloto & cocinero & cocinera \\
-cantante & limpiador & limpiadora \\
-juez & minero & minera \\
-dentista & arquitecto & arquitecta \\
-estudiante & ingeniero & ingeniera \\
+policía \textit{(police)} & abogado \textit{(lawyer)} & abogada \textit{(lawyer)} \\
+recepcionista \textit{(receptionist)} & enfermero \textit{(nurse)} & enfermera \textit{(nurse)} \\
+artista \textit{(artist)} & agricultor \textit{(farmer)} & agricultora \textit{(farmer)} \\
+comerciante \textit{(merchant)} & profesor \textit{(professor)} & profesora \textit{(professor)} \\
+periodista \textit{(journalist)} & mecánico \textit{(mechanic)} & mecánica \textit{(mechanic)} \\
+piloto \textit{(pilot)} & cocinero \textit{(cook)} & cocinera \textit{(cook)} \\
+cantante \textit{(singer)} & limpiador \textit{(cleaner)} & limpiadora \textit{(cleaner)} \\
+juez \textit{(judge)} & minero \textit{(miner)} & minera \textit{(miner)} \\
+dentista \textit{(dentist)} & arquitecto \textit{(architect)} & arquitecta \textit{(architect)} \\
+estudiante \textit{(student)} & ingeniero \textit{(engineer)} & ingeniera \textit{(engineer)} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 % -----------------------------
-
-%
-% references
-%
-\newpage
-\printbibliography
 
 \end{document}
