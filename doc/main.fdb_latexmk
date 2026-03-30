@@ -1,18 +1,18 @@
 # Fdb version 4
-["biber main"] 1774905767.79992 "main.bcf" "main.bbl" "main" 1774906357.57029 0
-  "main.bcf" 1774906357.38843 110493 e80c3a267b4d26d4238756f496f5f707 "pdflatex"
+["biber main"] 1774905767.79992 "main.bcf" "main.bbl" "main" 1774909230.58778 0
+  "main.bcf" 1774909230.39536 110493 e80c3a267b4d26d4238756f496f5f707 "pdflatex"
   "references.bib" 1774905659.66269 6882 395c0d1d8c495a3a4aebbf0cd38a871a ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1774906353.62686 "/home/juanj/Documents/Courses/ML4NLU/Seminar/group-share/doc/main.tex" "main.pdf" "main" 1774906357.57084 0
+["pdflatex"] 1774909225.54087 "/home/juanj/Documents/Courses/ML4NLU/Seminar/group-share/doc/main.tex" "main.pdf" "main" 1774909230.58833 0
   "../output/ar/xlm-roberta-large/figs/ar_xlmr_large_projection_curve.png" 1773677573 63653 ea921db3704d73348012a97b7b4492b4 ""
   "../output/es/facebook_xlm-v-base/figs/es_xlmv_base_projection_curve.png" 1773928309.09203 57999 a04a9857605c0841bc262c3a37664ec7 ""
   "../output/es/microsoft_mdeberta-v3-base/figs/es_mdeberta_projection_curve.png" 1773929620.80684 51999 2baa15f056fd3c2cdf0a91b16e30970e ""
   "../output/ti/bert-base-multilingual-cased/figs/ti_mbert_projection_curve.png" 1772727198 52315 39f9707a870ec1a4c69a068ffcda9f10 ""
   "/etc/texmf/web2c/texmf.cnf" 1765970626.95504 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/juanj/Documents/Courses/ML4NLU/Seminar/group-share/doc/main.tex" 1774906348.76185 31582 7838cc8ea38b456e12bc1d40f3a26c4b ""
+  "/home/juanj/Documents/Courses/ML4NLU/Seminar/group-share/doc/main.tex" 1774909225.12508 32444 c34248c5c6e5c9550a5ee24a8367a5a0 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx0900.tfm" 1136768653 3584 1a7de6c99457381c64abc1a7c545505f ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -232,11 +232,11 @@
   "figs/fig4_crosslingual.pdf" 1774905131.27841 20952 fe8da7466d886ccb303a97835d6112bb ""
   "figs/fig6_model_comparison.pdf" 1774905132.25836 47856 ba85a8f8bf410b089a939cb4f97a2701 ""
   "figs/fig7_gender_gap.pdf" 1774905132.44635 18368 8260a955f82db6558d91b05e68d3ada0 ""
-  "main.aux" 1774906357.38043 16785 d42ee495b0d2684267941868042f701f "pdflatex"
+  "main.aux" 1774909230.38337 16703 80e6309c62e72613cc2711ee06602b95 "pdflatex"
   "main.bbl" 1774905769.29696 36252 6fe6e9d295b79881b8a56868f07e12ef "biber main"
-  "main.out" 1774906357.38443 6235 89d609b7d58dcd854f770c57b090a5ce "pdflatex"
-  "main.run.xml" 1774906357.39243 2345 2a3bf96a8d53afbde995fbc1171fecf2 "pdflatex"
-  "main.tex" 1774906348.76185 31582 7838cc8ea38b456e12bc1d40f3a26c4b ""
+  "main.out" 1774909230.39136 6235 89d609b7d58dcd854f770c57b090a5ce "pdflatex"
+  "main.run.xml" 1774909230.39536 2345 2a3bf96a8d53afbde995fbc1171fecf2 "pdflatex"
+  "main.tex" 1774909225.12508 32444 c34248c5c6e5c9550a5ee24a8367a5a0 ""
   (generated)
   "main.aux"
   "main.bcf"
