@@ -157,7 +157,7 @@ gender association \parencite{Bolukbasi:2016}.
     \text{CosBias}_\ell(p) = \cos(\mathbf{s}_\ell(p), \mathbf{c}_{M,\ell}) - \cos(\mathbf{s}_\ell(p), \mathbf{c}_{F,\ell}),
 \end{equation}
 
-where cosine similarity is defined as \parencite{Manning:2008}:
+where cosine similarity is defined as:
 
 \begin{equation}
     \cos(\mathbf{a}, \mathbf{b}) = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{a}\| \|\mathbf{b}\|} .
@@ -370,24 +370,39 @@ Similarly, the cross lingual analysis shows that semantic structures depend less
 \subsection{Final Remarks and Limitations}
 Since we only looked at base embeddings without fine tuning, it's possible these bias patterns could change once the models are adapted for specific tasks. Moreover, our anchor sets and Spanish context corpus may not capture all domains of language use. 
 
-In conclusion, multilingual transformers encode measurable geometric gender bias that peaks in the middle semantic layers. Evaluating fairness exclusively at the final layer might underestimate magnitude. Our results suggest that measuring geometric structures across layers is more reliable. Furthermore, architectural choices like attention factorisation seem to inherently mitigate social bias, bypassing the need for explicit debiasing pipelines.
-
-\subsection*{Reproducibility Statement}
-To facilitate full reproducibility, the source code, data parsing scripts, and complete evaluation pipeline used in this study are publicly available in our GitHub repository: \url{https://github.com/JuanArango99/ml4nlu-gender-bias}.
+In conclusion, multilingual transformers encode measurable geometric gender bias that peaks in the middle semantic layers. Evaluating fairness exclusively at the final layer might underestimate magnitude. Our results suggest that measuring geometric structures across layers is more reliable. Furthermore, architectural choices like attention factorisation seem to mitigate social bias, bypassing the need for explicit debiasing pipelines.
 
 
-% END
+% ------- END -------
 
-%
+
 % references
-%
+
 \newpage
 \printbibliography
 
-% ─────────────────────────────────────────────────────────────────────────────
+% Appendix
 \appendix
-\section*{Appendix A. Notable Individual Model Trajectories}
-\addcontentsline{toc}{section}{Appendix A. Notable Individual Model Trajectories}
+
+
+\subsection*{Appendix A. Reproducibility Statement}
+To facilitate full reproducibility, the source code, data parsing scripts, and complete evaluation pipeline used in this study are publicly available in the following GitHub repository: \url{https://github.com/JuanArango99/ml4nlu-gender-bias}.
+
+\subsection*{Appendix B. Statement on the Use of Artificial Intelligence}
+\addcontentsline{toc}{section}{Appendix C. Statement on the Use of Artificial Intelligence}
+
+In accordance with the academic guidelines for the module \textit{\moduletitle}, this section discloses the use of generative Artificial Intelligence (AI) in the preparation of this term paper.
+
+The main author (Juan Arango) utilized Google Gemini for the following tasks:
+\begin{itemize}
+    \item Assisting in the implementation of the data loading pipeline (\texttt{data\_loader.py}), the geometric bias calculation framework, and part of the code for the visualization generation script.
+    \item Textual Refinement, proofreading and improving the formal academic phrasing of the Abstract, Introduction, and Methodology sections to ensure clarity and LaTeX formatting standards.
+\end{itemize}
+
+All AI generated suggestions, code snippets, and textual edits were critically reviewed, verified, and modified by the main author. The final responsibility for the technical accuracy and academic integrity of this work rests solely with the main author.
+
+\section*{Appendix C. Notable Individual Model Trajectories}
+\addcontentsline{toc}{section}{Appendix C. Notable Individual Model Trajectories}
 
 While the main text aggregates layer wise projections or restricts analysis to XLM-RoBERTa Base to uncover structural consistency, individual models show distinct behaviors. We use four examples below.
 
@@ -398,14 +413,14 @@ While the main text aggregates layer wise projections or restricts analysis to X
         \includegraphics[width=\linewidth]{../output/ti/bert-base-multilingual-cased/figs/ti_mbert_projection_curve.png}
         \caption{Tigrinya (mBERT): Extreme low-resource collapse. With insufficient pretraining data, mBERT fails to generate a societal frequency signal, collapsing into arbitrary negative projections.}
         \label{fig:app_ti_mbert}
-    \end{minipage}\hfill
+    \end{minipage}\hfill    
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{../output/ar/xlm-roberta-large/figs/ar_xlmr_large_projection_curve.png}
         \caption{Arabic (XLM-R Large): Late stage peaking. While Base models peak near layer~9, this Large model peaks at layer~14 with a $+4.54$ magnitude.}
         \label{fig:app_ar_xlmrl}
-    \end{minipage}
-\end{figure}
+    \end{minipage}    
+\end{figure}    
 
 \begin{figure}[!htbp]
     \centering
@@ -414,19 +429,24 @@ While the main text aggregates layer wise projections or restricts analysis to X
         \includegraphics[width=\linewidth]{../output/es/microsoft_mdeberta-v3-base/figs/es_mdeberta_projection_curve.png}
         \caption{Spanish (mDeBERTa-v3): Disentangled Attention reversal. The projection score stays negative across all middle layers, reversing the RoBERTa upward curve.}
         \label{fig:app_es_mdeb}
-    \end{minipage}\hfill
+    \end{minipage}\hfill    
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{../output/es/facebook_xlm-v-base/figs/es_xlmv_base_projection_curve.png}
         \caption{Spanish (XLM-V Base): Final layer artifact spike. The bias score exhibits an unnatural spike at layer~12 ($+3.11$) possibly due to token level output preparation.}
         \label{fig:app_es_xlmv}
-    \end{minipage}
-\end{figure}
+    \end{minipage}    
+\end{figure}    
 
-\section*{Appendix B. Evaluated Lexicons (Spanish)}
-\addcontentsline{toc}{section}{Appendix B. Evaluated Lexicons (Spanish)}
 
-This section details the explicit Spanish word sets used to construct the gender subspace and evaluate profession embeddings. The anchor sets (Table~\ref{tab:app_anchors_es}) capture fundamental gender semantics, while the profession sets (Table~\ref{tab:app_professions_es}) are divided into morphologically invariant (Group~A) and gender-inflected (Group~B) terms.
+\newpage
+
+\section*{Appendix D. Evaluated Vocabulary (Spanish)}
+\addcontentsline{toc}{section}{Appendix D. Evaluated Vocabulary (Spanish)}
+
+This section details the explicit Spanish word sets used to construct the gender subspace and evaluate profession embeddings. The anchor sets (Table~\ref{tab:app_anchors_es}) capture fundamental gender semantics, while the profession sets (Table~\ref{tab:app_professions_es}) are divided into morphologically invariant (Group~A) and gender inflected (Group~B) terms.
+
+\hspace{4em}
 
 \begin{table}[!htbp]
 \centering
@@ -452,6 +472,8 @@ chico \textit{(boy/guy)} & chica \textit{(girl/gal)} \\
 \end{tabular}
 \end{table}
 
+\hspace{2em}
+
 \begin{table}[!htbp]
 \centering
 \caption{Spanish profession terms evaluated in this study, categorized by morphological group.}
@@ -474,6 +496,7 @@ estudiante \textit{(student)} & ingeniero \textit{(engineer)} & ingeniera \texti
 \bottomrule
 \end{tabular}
 \end{table}
+
 
 % -----------------------------
 

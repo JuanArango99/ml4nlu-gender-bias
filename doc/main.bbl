@@ -627,47 +627,6 @@
       \field{pages}{13142\bibrangedash 13152}
       \range{pages}{11}
     \endentry
-    \entry{Manning:2008}{book}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=2214edb8305f7ccd7cdc310b3a8ae1b4}{%
-           family={Manning},
-           familyi={M\bibinitperiod},
-           given={Christopher\bibnamedelima D.},
-           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=68f523934985e2f967ab2b15f4ded07c}{%
-           family={Raghavan},
-           familyi={R\bibinitperiod},
-           given={Prabhakar},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=9a80de0e5ec6df57363aaf321a5d05be}{%
-           family={Schütze},
-           familyi={S\bibinitperiod},
-           given={Hinrich},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Cambridge University Press}%
-      }
-      \strng{namehash}{74f8a4742e6176570536838efea19700}
-      \strng{fullhash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
-      \strng{fullhashraw}{56b44e50eec2e98e36ad6aa3a5e7af9b}
-      \strng{bibnamehash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
-      \strng{authorbibnamehash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
-      \strng{authornamehash}{74f8a4742e6176570536838efea19700}
-      \strng{authorfullhash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
-      \strng{authorfullhashraw}{56b44e50eec2e98e36ad6aa3a5e7af9b}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Introduction to Information Retrieval}
-      \field{year}{2008}
-    \endentry
     \entry{Rogers:2020}{article}{}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=d41347f273c226091f12a17225bb356a}{%
